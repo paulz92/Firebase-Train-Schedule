@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- viewport for proper rendering -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Train Schedule</title>
+	<!-- reset css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- custom css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	
+	<!-- header spans full width of browser window -->
+	<header class="page-header text-center">
+		<h1>Train Schedule</h1>
+		<h3>Keep on chooglin'</h3>
+	</header>
+
+	<!-- main content within container -->
+	<div class="container">
+
+		<!-- add train row -->
+		<div class="row">
+			<!-- add train column -->
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<!-- panel for input form -->
+				<div class="panel panel-primary">
+					<!-- panel heading -->
+					<div class="panel-heading">
+    				<h3 class="panel-title">Add Train</h3>
+    			<!-- close panel heading -->
+  				</div>
+  				<!-- panel body -->
+  				<div class="panel-body">
+  					<!-- add train form -->
+  					<form>
+  						<!-- train name -->
+  						<div class="form-group">
+  							<label for="train-name">Train Name</label>
+    						<input type="text" class="form-control" id="train-name">
+  						</div>
+  						<!-- destination -->
+  						<div class="form-group">
+  							<label for="destination">Destination</label>
+    						<input type="text" class="form-control" id="destination">
+  						</div>
+  						<!-- first train time -->
+  						<div class="form-group">
+  							<label for="first-train-time">First Train Time (HH:mm - military time)</label>
+    						<input type="text" class="form-control" id="first-train-time">
+  						</div>
+  						<!-- frequency -->
+  						<div class="form-group">
+  							<label for="frequency">Frequency (min)</label>
+    						<input type="text" class="form-control" id="frequency">
+  						</div>
+  						<!-- submit button -->
+  						<button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+  					<!-- close form -->
+  					</form>
+  				<!-- close panel body -->
+  				</div>
+				<!-- close input form panel -->
+				</div>
+			<!-- close add train column -->
+			</div>
+		<!-- close add train row -->
+		</div>
+
+		<br>
+
+		<!-- train sched row -->
+		<div class="row">
+			<!-- train sched column -->
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<!-- panel for train display -->
+				<div class="panel panel-primary">
+					<!-- panel heading -->
+					<div class="panel-heading">
+    				<h3 class="panel-title">Current Train Schedule</h3>
+    			<!-- close panel heading -->
+  				</div>
+  				<!-- panel body -->
+  				<div class="panel-body">
+  					<!-- train info table -->
+  					<table class="table" id="train-table">
+  						<!-- table head -->
+  						<thead>
+  							<tr>
+  								<th>Train Name</th>
+  								<th>Destination</th>
+  								<th>Frequency</th>
+  								<th>Next Arrival</th>
+  								<th>Minutes Away</th>
+  							</tr>
+  						</thead>
+  						<!-- table body -->
+  						<tbody id="table-body">
+  						</tbody>
+  					<!-- close train info table -->
+  					</table>
+  				<!-- close panel body -->
+  				</div>
+				<!-- close train display panel -->
+				</div>
+			<!-- close train sched column -->
+			</div>
+		<!-- close train sched row -->
+		</div>
+
+	<!-- close container -->
+	</div>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <!-- ref to JavaScript file -->
+  <script src="assets/javascript/train.js" type="text/javascript"></script>
+	
+</body>
+</html>
