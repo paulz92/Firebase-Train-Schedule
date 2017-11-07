@@ -28,7 +28,7 @@ th {
 
 /* input boxes background color and border */
 .form-control {
-	background-color: #fdf9a1;
+	background-color: #fecd6e;
 	border: 1px solid #6e5d3c;
 }
 
@@ -65,10 +65,14 @@ h1 {
 }
 
 .blockquote, .panel-body, .panel-title, .blockquote-footer, 
-.btn-default {
+.btn-default, .form-control {
 	font-family: 'Smokum', cursive;
 	color: white;
 	letter-spacing: 1.8px;
+}
+
+.form-control {
+	color: black;
 }
 
 .panel-title, .btn-default {
