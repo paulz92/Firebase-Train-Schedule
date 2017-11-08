@@ -77,7 +77,10 @@ database.ref().on("child_added", function(childSnapshot) {
   var nextTrain = moment().add(minUntilNext, "minutes")
     .format("h:mm A");
 
+  var childKey = childSnapshot.key;
+
   // console log info
+  console.log("key: " + childKey);
   console.log("from database");
   console.log(childSnapshot.val());
   console.log("name: " + trainName);
@@ -92,9 +95,28 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log("next train time: " + nextTrain);
   console.log("============================================");
 
-  // appending each train's data to table
-  $("#table-body").append("<tr><td>" + trainName 
-    + "</td><td>" + trainDestination + "</td><td>" 
+  // appending each train's data to table 
+  // table row and button have id equal to child key
+  $("#table-body").append("<tr id='" + childKey + "'><td>" 
+    + trainName + "</td><td>" + trainDestination + "</td><td>" 
     + trainFrequency + " minutes</td><td>" + nextTrain 
-    + "</td><td>"+ minUntilNext + "</td></tr>");
+    + "</td><td>"+ minUntilNext + 
+    "</td><td><button class='btn btn-default delete'" + "id='"
+    + childKey + "'>X</button></td></tr>");
+});
+
+// on click for the delete button
+$(document).on("click", ".delete", function() {
+  // variable storing the id (child key) of button clicked
+  var childId = $(this).attr("id");
+  // removing that child from firebase
+  database.ref().child(childId).remove();
+});
+
+// function for child removed from firebase
+database.ref().on("child_removed", function(childSnapshot) {
+  // saving the reomved key in variable
+  var childId = childSnapshot.key;
+  // clearing html of table row/button with the id of the child 
+  $("#" + childId).html("");
 });
