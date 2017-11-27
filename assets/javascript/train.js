@@ -105,7 +105,7 @@ database.ref().on("child_added", function(childSnapshot) {
     + childKey + "'>X</button></td></tr>");
 });
 
-// on click for the delete button
+// on click function for the delete buttons
 $(document).on("click", ".delete", function() {
   // variable storing the id (child key) of button clicked
   var childId = $(this).attr("id");
